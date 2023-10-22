@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const BookingForm = () => {
   const [date, setDate] = useState(null);
@@ -24,6 +25,22 @@ const BookingForm = () => {
 
   const handleTimeChange = (e) => {
     setTime(e.target.value);
+  };
+
+  const handleBooking = () => {
+    if (date && time) {
+      Swal.fire({
+        title: 'Booking Confirmation',
+        text: `You have successfully booked for ${date} at ${time}.`,
+        icon: 'success',
+      });
+    } else {
+      Swal.fire({
+        title: 'Oops!',
+        text: 'Please select a date and time before booking.',
+        icon: 'error',
+      });
+    }
   };
 
   return (
@@ -57,6 +74,17 @@ const BookingForm = () => {
               </option>
             ))}
           </select>
+        </div>
+      )}
+
+      {date && time && (
+        <div className="text-center mt-4">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleBooking}
+          >
+            Book
+          </button>
         </div>
       )}
     </div>
