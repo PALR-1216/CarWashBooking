@@ -5,11 +5,11 @@ function Navigation() {
     <nav className="bg-blue-500 p-4">
       <div className="container mx-auto flex items-center justify-between">
         <a href="/" className="text-2xl font-bold text-white">
-          ChatGPT
+          Car Wash
         </a>
         <ul className="flex space-x-4">
           <li>
-            <a href="/test" className="text-white hover:text-gray-300">
+            <a href="/" className="text-white hover:text-gray-300">
               Home
             </a>
           </li>
